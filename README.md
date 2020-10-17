@@ -1,5 +1,5 @@
 # Javascript IV
-
+> Vamos aprender os conceitos de cliente e servidor, o que é uma API, utilizar o fetch() pra fazer comunicações com API.
 ## Protocolo HTTP
 - [Uma visão geral do HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Overview);
 
