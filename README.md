@@ -107,40 +107,6 @@ const parsedData = JSON.parse(data);
 
 ## Requisições
 
-## XMLHttpRequest
-
-- [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest);
-
-XMLHttpRequest (XHR) é um objeto que são usados para interagir com servidores. São usados para receber dados de uma URL sem ter que atualizar de novo a página - é criado uma requisição assíncrona.
-
-Apesar de ter "XML" no seu nome, a requisição de `XMLHttpRequest` pode receber qualquer tipo de dado. 
-
-### Anatomia de uma requisição XMLHttpRequest
-
-- [Sobre os códigos readyState](https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest/readyState);
-
-```javascript
-// cria um novo construtor XMLHttpRequest
-const request = new XMLHttpRequest();
-const metodo = "GET";
-const url = "https://exemplo.com";
-
-// inicializa a requisição
-request.open(metodo, url, true);
-
-// adiciona um evento para ser ativado quando o readyState mudar
-request.addEventListener("readystatechange", function () {
-  // verifica se a conexão foi bem sucedida
-  if (request.readyState == 4 && request.status == 200) {
-    // atribui a uma nova variável o JSON já transformado em objeto Javascript (através do parse())
-    const data = JSON.parse(request.response);
-  }
-})
-
-// envia a requisição para o servidor
-request.send();
-```
-
 ## Fetch
 
 - [Fetch()](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch);
@@ -176,4 +142,38 @@ fetch(url, {
   .then(json => console.log(json))
   .catch(erro => console.log(erro));
 }
+```
+
+## XMLHttpRequest
+
+- [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest);
+
+XMLHttpRequest (XHR) é um objeto que são usados para interagir com servidores. São usados para receber dados de uma URL sem ter que atualizar de novo a página - é criado uma requisição assíncrona.
+
+Apesar de ter "XML" no seu nome, a requisição de `XMLHttpRequest` pode receber qualquer tipo de dado. 
+
+### Anatomia de uma requisição XMLHttpRequest
+
+- [Sobre os códigos readyState](https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest/readyState);
+
+```javascript
+// cria um novo construtor XMLHttpRequest
+const request = new XMLHttpRequest();
+const metodo = "GET";
+const url = "https://exemplo.com";
+
+// inicializa a requisição
+request.open(metodo, url, true);
+
+// adiciona um evento para ser ativado quando o readyState mudar
+request.addEventListener("readystatechange", function () {
+  // verifica se a conexão foi bem sucedida
+  if (request.readyState == 4 && request.status == 200) {
+    // atribui a uma nova variável o JSON já transformado em objeto Javascript (através do parse())
+    const data = JSON.parse(request.response);
+  }
+})
+
+// envia a requisição para o servidor
+request.send();
 ```
