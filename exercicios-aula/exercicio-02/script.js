@@ -1,56 +1,33 @@
-// Fazer uma chamada na api do viacep passando o valor de um cep (viacep.com.br/ws/${cep}/json/), pegar seu retorno e preencher os outros campos com a resposta da requisição.
-// 01. Fazer chamada primeiro XMLHttpRequest
-// const form = document.getElementsByTagName("form")
-const cepInput = document.getElementById("cep")
-const logradouroInput = document.getElementById("logradouro")
-const complementoInput = document.getElementById("complemento")
-const bairroInput = document.getElementById("bairro")
-const localidadeInput = document.getElementById("localidade")
-const ufInput = document.getElementById("uf")
-const cepError = document.getElementById("cep-error")
+// [] usar fetch() para buscar o arquivo aluna.json
+// [] apresentar da seguinte forma:
+/* 
+<div id="root">
+  <h3>Nome da Aluna</h3>
+  <p>Turma 5</p>
+  <a href="github.com/nome-da-aluna" target="_blank">Github</a>
+</div>
+*/
 
-cepInput.addEventListener("blur", function(event) {
-    event.preventDefault();
-    console.log(cepInput.value);
-    const request = new XMLHttpRequest();
-    const metodo = "GET";
-    const url = `https://viacep.com.br/ws/${cepInput.value}/json/`;
+const root = document.getElementById("root")
 
-    request.open(metodo, url, true);
-
-    request.addEventListener("readystatechange", function(){
-        console.log(request)
-        cepError.innerHTML = "";
-        logradouroInput.value = "";
-        complementoInput.value = "";
-        bairroInput.value = "";
-        localidadeInput.value = "";
-        ufInput.value = "";
-        // console.log(request.readyState)
-        // console.log(request.status)
-
-        if(request.readyState == 4 && request.status == 200) {
-            const dados = JSON.parse(request.response)
-            // console.log(dados)
-            preencherCampos(dados)
-
-        } 
-        if(request.readyState == 4 && request.status == 0)  {
-            cepError.innerHTML = "Cep não encontrado"
-        }
+function buscar() {
+  fetch("aluna.json") // Buscando o arquivo .json
+    .then(function (response) {
+      console.log(response)
+      return response.json() // convertendo em um objeto
     })
-    request.send();
-})
+    .then(function (json) {
+      console.log(json)
+      criarAluna(json)
+    })
+}
 
-
-
-
-
-function preencherCampos(dadosCep){
-    console.log(dadosCep)
-    logradouroInput.value = dadosCep.logradouro;
-    complementoInput.value = dadosCep.complemento;
-    bairroInput.value = dadosCep.bairro;
-    localidadeInput.value = dadosCep.localidade;
-    ufInput.value = dadosCep.uf;
+function criarAluna(aluna) {
+  console.log(aluna.nome)
+  console.log(aluna.github)
+  console.log(aluna.turma)
+  console.log(root)
+  root.innerHTML = `<h3>${aluna.nome}</h3>
+  <p>Turma ${aluna.turma}</p>
+  <a href="${aluna.github}" target="_blank">Github</a>`
 }
