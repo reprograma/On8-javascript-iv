@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box
+}
+  
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Dosis', sans-serif;
+    line-height: 1.6;
+    color: #666;
+    background: #F6F6F6;
+}
+  
+#root {
+    max-width: 1200px;
+    margin: 0 auto;
+}
