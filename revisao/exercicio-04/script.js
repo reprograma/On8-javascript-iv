@@ -7,5 +7,8 @@ const json = `
     }`
 
 console.log(json)
-const objeto = JSON.parse(json)
+const objeto = JSON.parse(json);
 console.log(objeto)
+
+console.log(objeto.titulo)
+console.log(objeto.descricao)

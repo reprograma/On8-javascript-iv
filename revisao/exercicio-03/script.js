@@ -1,6 +1,54 @@
 // Use o fecth() na rota search capturando informação do input
-// https://api.giphy.com/v1/gifs/search?api_key=5Kuwb1LQNoX1Q5r7IjZA58SeW2iSwGty&q=cats&limit=10&offset=0&rating=g&lang=en
+// Documentação da api: https://developers.giphy.com/dashboard/
 // trazer 10 imagens
 // apresentar as imagens na div #root
 // Caso não encontre nenhum gif exibir msg: "Não entramos gifts!"
 // Caso errarmos a URL da requisição exibir msg: "Não rolou o fetch!"
+
+const gifInput = document.querySelector('#gifInput')
+const gifButton = document.getElementById('gifButton')
+const divRoot = document.getElementById('root')
+
+// console.log(gifInput)
+// console.log(gifButton)
+// console.log(divRoot)
+gifButton.addEventListener('click', evento => {
+    evento.preventDefault()
+    adicionarGifts()
+})
+
+const adicionarGifts = () => {
+
+    // console.log(gifInput.value)
+    const search = gifInput.value
+    const mykey = '' //Preencher com a sua api_key
+
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${mykey}&q=${search}&limit=10&offset=0&rating=g&lang=en`
+
+    divRoot.innerHTML = ""
+
+    fetch(url)
+        .then(response => response.json())
+        .then(objeto => {
+            // console.log(objeto)
+            // console.log(objeto.data)
+            const gifts = objeto.data
+            // console.log(gifts) // lista 
+            if (gifts && gifts.length) {
+                for (let i = 0; i < gifts.length; i++) {
+                    // console.log(gifts[i])
+                    const gif = gifts[i]
+                    // console.log(gif.images)
+                    // console.log(gif.images.original)
+                    // console.log(gif.images.original.url)
+                    divRoot.innerHTML += `<img src="${gif.images.original.url}" >`
+                }
+            } else {
+                divRoot.innerHTML = `Não entramos gifts!`
+            }
+        })
+        .catch(erro => {
+            console.log(erro)
+            divRoot.innerHTML = `Não rolou o fetch!`
+        })
+}

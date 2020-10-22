@@ -1,6 +1,5 @@
 // Use o fecth() na rota search capturando informação do input
-// doc: https://developers.giphy.com/dashboard/
-// https://api.giphy.com/v1/gifs/search?api_key=5Kuwb1LQNoX1Q5r7IjZA58SeW2iSwGty&q=cats&limit=10&offset=0&rating=g&lang=en
+// Documentação da api: https://developers.giphy.com/dashboard/
 // trazer 10 imagens
 // apresentar as imagens na div #root
 
@@ -18,11 +17,9 @@ gifButton.addEventListener('click', evento => {
 
 const adicionarGifts = () => {
 
-    // https://api.giphy.com/v1/gifs/search?api_key=5Kuwb1LQNoX1Q5r7IjZA58SeW2iSwGty&q=cats&limit=10&offset=0&rating=g&lang=en
-
     // console.log(gifInput.value)
     const search = gifInput.value
-    const mykey = '5Kuwb1LQNoX1Q5r7IjZA58SeW2iSwGty'
+    const mykey = '' //Preencher com a sua api_key
 
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${mykey}&q=${search}&limit=10&offset=0&rating=g&lang=en`
 
@@ -36,13 +33,12 @@ const adicionarGifts = () => {
             const gifts = objeto.data
             // console.log(gifts) // lista 
             for(let i = 0; i < gifts.length; i++) {
-                console.log(gifts[i])
+                // console.log(gifts[i])
                 const gif = gifts[i]
                 // console.log(gif.images)
                 // console.log(gif.images.original)
-                console.log(gif.images.original.url)
+                // console.log(gif.images.original.url)
                 divRoot.innerHTML += `<img src="${gif.images.original.url}" >`
-                console.log("-----------")
             }
         })
 }
