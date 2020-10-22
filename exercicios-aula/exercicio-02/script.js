@@ -1,17 +1,33 @@
-// Fazer uma chamada na api do viacep passando o valor de um cep (viacep.com.br/ws/${cep}/json/),
-// pegar seu retorno e preencher os outros campos com a resposta da requisição.
-// 01. Fazer chamada primeiro XMLHttpRequest
-const form = document.getElementsByTagName("form")
-const cepInput = document.getElementById("cep")
+// [] usar fetch() para buscar o arquivo aluna.json
+// [] apresentar da seguinte forma:
+/* 
+<div id="root">
+  <h3>Nome da Aluna</h3>
+  <p>Turma 5</p>
+  <a href="github.com/nome-da-aluna" target="_blank">Github</a>
+</div>
+*/
 
-form.addEventListener("blur", function(event){
-    event.preventDefault();
-    console.log(cepInput.value)
-})
+const root = document.getElementById("root")
 
-console.log(cepInput.value)
+function buscar() {
+  fetch("aluna.json") // Buscando o arquivo .json
+    .then(function (response) {
+      console.log(response)
+      return response.json() // convertendo em um objeto
+    })
+    .then(function (json) {
+      console.log(json)
+      criarAluna(json)
+    })
+}
 
-
-// 02. Lidar com os erros
-// 03. Mudar para fetch
-// 04. Mudar chamada para async await
+function criarAluna(aluna) {
+  console.log(aluna.nome)
+  console.log(aluna.github)
+  console.log(aluna.turma)
+  console.log(root)
+  root.innerHTML = `<h3>${aluna.nome}</h3>
+  <p>Turma ${aluna.turma}</p>
+  <a href="${aluna.github}" target="_blank">Github</a>`
+}

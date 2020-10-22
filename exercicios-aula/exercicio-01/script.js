@@ -1,32 +1,35 @@
-// function clicar(){
-//     alert("Testando!!")
-// }
-const imagem = document.getElementById("rainbow")
-
-const clicar = () => {
-    fetch("rainbow.jpg")
-        .then(response => response.blob()) // convertendo resposta usando o blob() pq é um arquivo de imagem
-        .then(blob =>  {
-            console.log(blob)
-            const url = URL.createObjectURL(blob) //criando a url para inserir no src da imagem
-            console.log(url)
-            imagem.src = url
-        }) //Objeto retornado
-        .catch(erro => console.log(erro)) // Qdo não dá certo nossa requisicao
-}
-
+//01. Fazer a chamada usando fetch para pegar a imagem.
+//02. Colocar a imagem na tag img no body.
 const img = document.getElementById("rainbow")
 
+// function clicar() {
+//     fetch("rainbows.jpg") // Busca imagem
+//         .then(function(response) { // então espera o retorno da promisse
+//             return response.blob() // convertendo o objeto blob
+//         })
+//         .then(function(blob) {
+//             const url = URL.createObjectURL(blob) // criamos uma URL de objeto blob
+//             img.src =  url // inserimos a url criada na tag img
+//         })
+// }
+
+// 03. Lidar com situções de erro.
 function clicar() {
-    fetch("rainbow.jpg")
+    fetch("rainbows.jpg")
         .then(function(response) {
             console.log(response)
+            // console.log(response.ok)
+            // console.log(response.status)
             if(response.ok){
-                response.blob().then(function(blob) {
-                    img.src = URL.createObjectURL(blob)
+                response.blob().then(function(objeto){
+                    console.log(objeto)
+                    img.src = URL.createObjectURL(objeto)
                 })
             } else {
-                alert("Deu ruim")
+                alert("Olha, eu não achei essa img!")
             }
+        })
+        .catch(function(error) {
+            console.log(error)
         })
 }
