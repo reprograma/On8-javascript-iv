@@ -46,7 +46,7 @@ function clicar() {
                 })
             } else {
                 alert("Não consegui achar a imagem solicitada") //erro do usuário
-            }\
+            }
         })
         .catch(function (error) {
             console.log(error); //esse não vai aparecer pois seria necessário um erro de rede

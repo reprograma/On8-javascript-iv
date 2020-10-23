@@ -1,5 +1,6 @@
 # Javascript IV
 > Vamos aprender os conceitos de cliente e servidor, o que é uma API, utilizar o fetch() pra fazer comunicações com API.
+
 ## Protocolo HTTP
 - [Uma visão geral do HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Overview);
 
@@ -64,7 +65,6 @@ DELETE | Remove um item   | 200               |
 
 Trata-se de uma arquitetura em que uma API é construída, seguindo determinadas práticas, usando os verbos existentes do protocolo HTTP. É como se fosse um método BEM para APIs. É possível fazer um estilo CSS sem seguir o método, mas pode ser vire uma bagunça e não seja intuitivo. A arquitetura REST API faz com que o consumo das APIs sejam mais intutivos e organizados.
 
-
 ### Acessando dados de APIs
 - [JSON Placeholder](https://jsonplaceholder.typicode.com/guide/);
 
@@ -107,7 +107,7 @@ const parsedData = JSON.parse(data);
 
 ## Requisições
 
-### Fetch
+## Fetch
 
 - [Fetch()](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch);
 Um método usado para iniciar requisições e para transferências de dados entre recursos web. O `fetch()` retorna uma `Promise`.
@@ -142,39 +142,6 @@ fetch(url, {
   .then(json => console.log(json))
   .catch(erro => console.log(erro));
 }
-```
-
-### async e await
-
-- [Expressão da função async](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/async_function);
-
-A palavra-chave `async` é usada em declarações ou expressões de funções. Assim, elas se tornam funções assíncronas e permitem o uso do `await` dentro delas.
-
-Elas normalmente são usadas em conjunto de funções assíncronas, como `Promise` (e, consequentemente, `fetch`), quando é necessário esperar a resolução desta para dar continudade às operações seguintes.
-
-```javascript
-async function getDados(url) {
-    const response = await fetch(url);
-    const json = await response.json();
-    return json;
-}
-getDados(url)
-      .then(res => console.log(res))
-      .catch(err => console.error(err));
-```
-
-Exemplo de try...catch:
-```javascript
-async function getDados(url) {
-    try {
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-    } catch (err) {
-        console.error(err);
-    }
-}
-getDados(url);
 ```
 
 ## XMLHttpRequest
