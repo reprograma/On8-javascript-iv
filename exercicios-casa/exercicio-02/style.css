@@ -22,3 +22,11 @@ form{
 #pokemon {
     text-align: center;
 }
+
+img {
+    width: 15%;
+}
+
+p {
+    text-transform: uppercase;
+}

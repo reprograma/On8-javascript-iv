@@ -63,7 +63,7 @@ cepInput.addEventListener("blur", function (event) {
         })
         .then(function (objeto) {
             // console.log(objeto)
-            preencherInputs(objeto)
+            preencherCampos(objeto)
         })
         .catch(function (erro) {
             console.log(erro)
