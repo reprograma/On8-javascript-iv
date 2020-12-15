@@ -49,7 +49,8 @@ form{
    font-size: clamp(.8rem, 1vw, 3rem);
    font-family:'Poppins';
    font-weight: 400;
-   color: var(--subTitle-color)
+   /* color: var(--subTitle-color); */
+   color: rgb(119, 114, 133);
 }
 
 .inputs{
@@ -85,11 +86,6 @@ form{
     cursor: pointer;
     margin-top: 1rem;
 }
-
-.button-input:hover{
-    background: #412466 ;
-    transition: all 0.6s ease;
-  }
    
 
 #div-user{
@@ -165,7 +161,7 @@ form{
 .project{
     text-align: center;
     font-family: 'Roboto';
-    font-size: clamp(1rem, 1vw, 3rem);
+    font-size: clamp(.6rem, 1vw, 3rem);
     color: rgb(77, 75, 75);
     margin-top: 1rem;
 }
@@ -219,6 +215,11 @@ form{
         height: 3.5rem;
         margin: 0;
     }
+
+    .button-input:hover{
+        background: #412466 ;
+        transition: 1s all ease;
+      }
 
     #div-user {
         width: 36rem;
@@ -279,194 +280,3 @@ form{
     }
 
 }
-   
-/* }
-
-
-    /* background-image: url(./thumb-1920-985381.jpg);
-    background-size: 4.6rem; */
-/* }
-
-.title {
-    color: var(--title-color);
-    font-family: Oxygen;
-    font-weight: 700;
-    font-size: 3.375rem;
-    text-align: center;
-    margin-top: 2rem;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.7rem;
-    margin-bottom: 2rem;
-}
-
-.subTitle {
-    width: 38rem;
-    font-size: 1rem/1.25rem 'Poppins';
-    font-weight: 400;
-    color: var(--subTitle-color);
-    text-align: left;
-}
-
-.inputs {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-#nameInput {
-    width: 25rem;
-    height: 3.5rem;
-    margin-right: 1rem;
-    outline: none;
-    border: none;
-    padding-left: 1rem;
-    text-align: left;
-    color: var(--subTitle-color);
-    background: var(--background-input);
-    border-radius: 0.375rem;
-}
-
-
-.button-input {
-    width: 12rem;
-    height: 3.5rem;
-    font-family: Oxygen;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 0.375rem;
-    border: .18rem  solid #7D17FF ;
-    outline: none;
-    color: white;
-    background-color: initial;
-    overflow: hidden;
-    transition: 1s all ease;
-    text-transform: uppercase;
-    cursor: pointer;
-
-}
-
-.button-input:hover{
-    background: #7D17FF;
-    transition: all 0.6s ease;
-  }
-
-
-#user {
-    margin: 0 auto;
-    width: 40rem;
-    height: 13rem;
-    border-radius: .75rem;
-    background-color: var(--background-input);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: .1rem .1rem .4rem rgb(15, 15, 15);
-
-}
-
-
-#div-user {
-    margin: 0 auto;
-    width: 36rem;
-    height: 18rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.project{
-    text-align: center;
-    font-size: .8rem;
-    color: rgb(77, 75, 75);
-    margin-top:2rem;
-}
-
-.elements-js{
-    display: flex;
-    align-items: center;
-}
-
-
-.img {
-    width: 14rem;
-    height: 16.375rem;
-    border-radius: 0.75rem;
-    margin-left: 1rem; 
-    /* box-shadow: .1rem .1rem .4rem black; */
-   
-/* }
-
-.h2-js{
-    color: var(--title-color);
-    font: 1.45rem/1.875rem 'Poppins' ;
-    font-weight: 600;
-    text-align: left;
-    padding:0 0 2rem 2rem;
-}
-
-.list-js{
-    list-style: none;
-}
-
-.location-js,
-.html_url-js,
-.login,
-#link-page {
-    color: var(--subTitle-color);
-    font: 1rem/1.25rem'Roboto';
-    font-weight: 400;
-    padding: 0 0 1rem 2rem;
-    text-decoration: none;
-}
-
-
-.html_url-js:hover {
-    color: var(--title-color);
-}
-
-
-.h1-js {
-    font-family: 'Helvetica';
-    font-size: 2rem;
-    color: #FF0000;
-}  */
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-@media (max-width: 800px) {
-
-    .title {
-        font-size: 1.8rem;
-        margin-top: 4rem;
-        text-align: center;
-    }
-
-    #user {
-        margin-top: 2rem;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .img {
-        height: 16rem;
-        width: 16rem;
-    }
-} */
