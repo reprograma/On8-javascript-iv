@@ -13,6 +13,17 @@ body {
     background: rgb(148, 164, 236);
 }
 
+.title-pokemon{
+    color: linen;
+    font-size: 2rem;
+    padding-top: 3rem;
+}
+
+.subtitle-pokemon{
+    font-size: 1rem;
+    color: rgb(253, 222, 186);
+}
+
 form{
     max-width: 30rem;
     margin: auto;
@@ -45,20 +56,20 @@ form{
 }
 
 #submit:hover{
-    box-shadow: .2rem .2rem .6rem rgb(18, 15, 34);
-    background: rgb(18, 15, 34);
+    box-shadow: .2rem .2rem .6rem rgb(59, 100, 128);
+    background: rgb(32, 38, 73);
     font-weight: 600;
 }
 
 #text-pokemon {
     color: rgb(241, 242, 247);
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     margin: 2rem auto;
 }
 
 #img-pokemon {
     margin: auto;
-    width: 28rem;
+    width: 19rem;
     border-radius: 3rem;
     border: none;
 }
@@ -68,3 +79,4 @@ form{
     color: rgb(172, 12, 12); 
     font-size: 4rem;
 }
+

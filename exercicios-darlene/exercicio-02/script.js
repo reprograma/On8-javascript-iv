@@ -5,12 +5,12 @@ const submit = document.getElementById('submit');
 const pokemon = document.getElementById('pokemon');
 
 submit.addEventListener('click', cancelEvent => {
-    cancelEvent.preventDefault();
+    cancelEvent.preventDefault();  
     searchPokemon()
 })
 
 const searchPokemon = () => {
-
+  
 
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonInput.value}`)
 

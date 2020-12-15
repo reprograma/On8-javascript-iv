@@ -1,45 +1,51 @@
-/* const nameInput = document.getElementById('nameInput')
+const nameInput = document.getElementById('nameInput')
 const submit = document.getElementById('submit')
-const divId = document.getElementById('user')
-
+const divId = document.getElementById('div-user')
 
 //JS Moderno
  
 submit.addEventListener('click', e => {
    e.preventDefault()
-   link() //estou chamando a função abaixo
-   //console.log(inputNameUser.value)
+   link() 
 })
 
 const link = () => {
-   const inputValue = nameInput.value
-   const url = `https://api.github.com/users/${inputValue}`
+   fetch(`https://api.github.com/users/${nameInput.value}`)
    
-
-   fetch(url)
       .then(response => {
          if (!response.ok) {
-
-            throw new Error(`O Status do erro foi ${response.status} quer dizer ${response.statusText}`)
-
+            throw new Error(`O Status do erro foi ${response.status} e quer dizer ${response.statusText}`)
          } else {
             response.json().then(object => {
-               //    console.log(object.avatar_url);
-               divId.innerHTML = `<img src="${object.avatar_url}">`
+               TagHtml(object)    
+               console.log(object)
             })
          }
       })
-
       .catch(error => {
-         divId.innerHTML = `<h1>${error}</h1>`
+         divId.innerHTML = `<h1 class='h1-js'>${error}</h1>`       
       })
-
       nameInput.value ="";
-
 }
 
-*/
+// FUNÇÃO PARA CRIAR AS TAGS HTML------------------------------
 
+const TagHtml = (object) => {
+   divId.innerHTML =`
+   <div id="user">
+   <ul class="elements-js">
+   <img class='img' src="${object.avatar_url}">
+      <li class='list-js'>
+         <h2 class="h2-js">${object.name}<h2/>
+         <p class='login'>@${object.login}</p> 
+         <p class="location-js">${object.location} | ${object.company}<p/>
+         <a class='html_url-js' href="${object.html_url}" target="_blank" >${object.html_url}<a/>
+      <li/>
+   <ul/>
+   </div>`
+}
+
+/*
 
 // Versão XMLHttpRequest-----------------------------
 
@@ -57,6 +63,7 @@ submit.addEventListener('click', e => {
    const request = new XMLHttpRequest()
    const method = "GET"
    const url = `https://api.github.com/users/${inputValue}`
+   
 
    request.open(method, url, true);
 
@@ -64,10 +71,20 @@ submit.addEventListener('click', e => {
       if (request.readyState == 4 && request.status == 200) {
          const data = JSON.parse(request.response)
          urlAvatar(data)
+        
+
+         const description  = document.createElement('h2')
+         description.innerHTML = `Nome: ${data.name}`
+         divId.appendChild(description)
+
+         //STYLE
+
+         description.style.color = '#fd16cb'
+
        }else{
          divId.innerHTML= `O erro é do tipo ${request.status} `
 
-         //estilizando a mensagem de erro
+         //STYLE
 
          divId.style.fontFamily = 'Helvetica'
          divId.style.fontSize = '2rem'
@@ -88,7 +105,7 @@ function urlAvatar(object){
 }
 
 
-
+*/
 
 
 
