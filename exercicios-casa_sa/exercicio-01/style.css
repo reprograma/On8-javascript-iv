@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    max-width: 400px;
+    margin: auto;
+    padding: 50px 30px;
+}
+
+#user p {
+    text-align: center;
+    padding: 5px 0;
+}
+
+#user img{
+    width:300px;
+}
